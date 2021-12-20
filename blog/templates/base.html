@@ -22,19 +22,31 @@
 
 <body>
  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-   <a class="navbar-brand" href="#">Mój blog</a>
+   <a class="navbar-brand" href="/">Mój blog</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
    </button>
-
-   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+     <a class="navbar-brand" href="/new-post">Dodaj post</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+     <a class="navbar-brand" href="/drafts">Drafts</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
      <ul class="navbar-nav mr-auto">
      </ul>
-     <form class="form-inline my-2 my-lg-0">
-       <input class="form-control mr-sm-2" type="text" placeholder="Szukaj" aria-label="Szukaj">
-       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Szukaj</button>
-     </form>
+     {% if session.logged_in %}
+       <form class="form-inline my-2 my-lg-0" action="{{ url_for('logout') }}" method="POST">
+         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Wyloguj</button>
+       </form>
+     {% else %}
+       <a href="{{ url_for('login') }}" class="btn btn-secondary my-2 my-lg-0">Zaloguj</a>
+     {% endif %}
    </div>
  </nav>
 
