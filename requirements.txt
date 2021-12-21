@@ -10,6 +10,7 @@ flask-shell==0.1.8
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.0.0
 greenlet==1.1.2
+gunicorn
 ipython==7.30.1
 itsdangerous==2.0.1
 jedi==0.18.1
